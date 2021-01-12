@@ -1,0 +1,23 @@
+{% extends "diary/base.html"%}
+
+
+{% block content %}
+<form action="" method="POST">
+    <table>
+        <tr>
+            <th>Title</th>
+            <td>{{ form.title }}</td>
+        </tr>
+        <tr>
+            <th>Main content</th>
+            <td>{{ form.text }}</td>
+        </tr>
+        <tr>
+            <th>Day</th>
+            <td>{{ form.date }}</td>
+        </tr>
+    </table>
+<button type="submit" class="btn btn-primary">Send</button>
+{% csrf_token %}
+</form>
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends 'diary/base.html' %}
+
+
+{% block content %}
+<div style="padding-left:20px">
+<h1>Dairy List</h1>
+</div>
+<table class="table">
+
+    <tr>
+        <th>Title</th>
+        <th>Day</th>
+        <th> </th>
+        <th> </th>
+    </tr>
+
+
+<tbody>
+{% for day in day_list %}
+  <tr>
+    <td><a href="{% url 'diary:detail' day.pk %}">{{ day.title }}</a></td>
+    <td>{{ day.date }}</td>
+    <td><a href="{% url 'diary:update' day.pk %}">Update</a></td>
+    <td><a href="{% url 'diary:delete' day.pk %}">Delete</a></td>
+
+  </tr>
+{% endfor %}
+</tbody>
+</table>
+
+<!--前への部分-->
+{% if page_obj.has_previous %}
+<a href="?page={{ page_obj.previous_page_number }}">Ahead</a>
+{% endif %}
+
+<!--次への部分-->
+{% if page_obj.has_next %}
+<a href="?page={{ page_obj.next_page_number }}">Next</a>
+{% endif %}
+
+{% endblock %}

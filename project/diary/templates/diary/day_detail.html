@@ -1,0 +1,20 @@
+{% extends "diary/base.html"%}
+
+
+{% block content %}
+<table>
+    <tr>
+        <th>Title</th>
+        <td>{{ day.title }}</td>
+    </tr>
+    <tr>
+        <th>Main content</th>
+        <td>{{ day.text | linebreaksbr }}</td>
+    </tr>
+    <tr>
+        <th>Day</th>
+        <td>{{ day.date }}</td>
+    </tr>
+</table>
+
+{% endblock %}
